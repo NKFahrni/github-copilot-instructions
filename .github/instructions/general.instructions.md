@@ -51,3 +51,10 @@
 # File Organization
 - Logic in `.ts`, template in `.html`, styles in `.scss`.
 - Place constants near usage or in a local `constants.ts`, within the **existing** folder structure.
+
+# Commenting Code
+- Do not add comments unless necessary, write code that is self documenting.
+- none of the code needs comments. If you dont use abbreviations, and weird names. Only use proper naming conventions.
+- Avoid complex logic in functions, make multiple functions that split the logic into smaller, more manageable pieces.
+- Use descriptive names for variables, functions, and classes to convey their purpose clearly.
+- Keep functions small and focused on a single task.
