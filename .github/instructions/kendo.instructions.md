@@ -1,7 +1,3 @@
----
-applyTo: "src/app/**/{*.ts,*.html,*.scss}"
----
-
 # Kendo UI Component Rules
 
 ## Kendo Grid (Typed + Performant)

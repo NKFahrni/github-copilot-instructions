@@ -101,3 +101,23 @@ Here is a link to the most recent Angular style guide https://angular.dev/style-
 - Design services around a single responsibility
 - Use the `providedIn: 'root'` option for singleton services
 - Use the `inject()` function instead of constructor injection
+
+## Component Authoring
+- Standalone components with `imports: [...]`.
+- Use `input<T>()` / `output<T>()` (signals) for component I/O.
+- Local state via `signal()`; derived via `computed()`.
+- Templates use `@if/@for/@switch`; prefer `[class.foo]="cond"` and `[style.width.px]="w"` bindings.
+- `changeDetection: OnPush` for all components.
+
+# RxJS & Observable Handling (Always)
+- Model all async flows with **RxJS Observables** (e.g., `HttpClient`).
+- **Do not call `subscribe()`** unless a side-effect is explicitly required.
+  - Templates: use `| async`.
+  - Components: `toSignal(source$, { initialValue })` when driving the view.
+  - Services: **return `Observable<T>`** from public methods.
+- Single-value needs:
+  - Use `firstValueFrom(obs$)` for the first emission.
+  - Use `lastValueFrom(obs$)` for completion-based last emission.
+  - Or `take(1)` if staying in Rx.
+- Compose with `switchMap/concatMap/exhaustMap/mergeMap` instead of nested subscriptions.
+- Handle errors explicitly (`catchError`) and keep streams strongly typed.
