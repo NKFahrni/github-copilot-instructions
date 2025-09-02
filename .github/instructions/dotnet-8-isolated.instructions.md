@@ -17,9 +17,10 @@
 # SOLID, Naming & Code Quality
 - Apply **SOLID** principles in design and refactors.
 - **Naming**:
-  - Constants: `SCREAMING_SNAKE_CASE` (e.g., `DEFAULT_PAGE_SIZE`).
-  - Variables: `camelCase`, Methods/Properties: `PascalCase`.
-  - Types (classes/records/interfaces/enums): `PascalCase`.
+   - Constants: `SCREAMING_SNAKE_CASE` (e.g., `DEFAULT_PAGE_SIZE`).
+  - Variables & functions/methods: `camelCase`.
+  - **Private/protected fields**: `_camelCase` (leading underscore).
+  - Types (classes/records/structs/interfaces/enums): `PascalCase`.
 - **No abbreviations** (avoid `cfg`, `usr`, `svc`; use full words).
 - **No magic numbers/strings**: extract to named `const` or `static readonly` fields (same file or local constants module).
 - **DRY**: after the **second–third** repetition, refactor into a shared function/utility.
