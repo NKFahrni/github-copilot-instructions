@@ -8,7 +8,7 @@
 - Apply **SOLID** principles in design and refactors.
 - **Naming** (company conventions):
   - Constants: `SCREAMING_SNAKE_CASE` (e.g., `DEFAULT_PAGE_SIZE`).
-  - Variables & functions/methods: `camelCase`.
+  - Variables: `camelCase`, Methods/Properties: `PascalCase`.
   - Types (classes/records/structs/interfaces/enums): `PascalCase`.
 - **No abbreviations** anywhere (avoid `cfg`, `btn`, `usr`; use full words).
 - **No magic numbers/strings**: extract to named `const` or `static readonly` fields in the same file or a local constants module.
