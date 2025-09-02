@@ -9,11 +9,16 @@
 - Support **cancellation** on all async entry points with `CancellationToken`.
 - Use **Azure SDK** clients via **`AddAzureClients`** (HTTP pipeline, retries, auth) rather than hand-rolled `HttpClient`.
 
+# Performance & Cold Start
+- Design for cold start scenarios; avoid heavy initialization in constructors.
+- Use static initialization sparingly; prefer lazy initialization or DI.
+- Keep function app warm with appropriate hosting plans when needed.
+
 # SOLID, Naming & Code Quality
 - Apply **SOLID** principles in design and refactors.
 - **Naming**:
   - Constants: `SCREAMING_SNAKE_CASE` (e.g., `DEFAULT_PAGE_SIZE`).
-  - Variables & functions/methods: `camelCase`.
+  - Variables: `camelCase`, Methods/Properties: `PascalCase`.
   - Types (classes/records/interfaces/enums): `PascalCase`.
 - **No abbreviations** (avoid `cfg`, `usr`, `svc`; use full words).
 - **No magic numbers/strings**: extract to named `const` or `static readonly` fields (same file or local constants module).
@@ -31,6 +36,11 @@
 - Triggers & Bindings: Use **attributes** (e.g., `HttpTrigger`, `TimerTrigger`, `ServiceBusTrigger`, `BlobOutput`).
 - DI: Register services/config with `builder.Services` and `builder.Configuration`.
 - Telemetry: Prefer **OpenTelemetry** (`AddOpenTelemetry`) with Azure Monitor exporter if present.
+
+# Dependency Injection
+- Register dependencies with appropriate lifetimes (Singleton, Scoped, Transient).
+- Prefer constructor injection; avoid service locator pattern.
+- Use `IOptions<T>` for configuration; validate at startup.
 
 # Language & Tooling Rules
 - Must be **analyzer-clean**; respect **.editorconfig**, Roslyn analyzers, and StyleCop (if configured).
@@ -59,5 +69,6 @@
 
 # File Organization
 - One function class per file (or a small cohesive set); one top-level type per file.
+- Function names should be descriptive and follow PascalCase (e.g., `ProcessOrderQueue`, `HandleWebhook`).
 - Keep constants near usage or in a local `Constants` file within the **existing** structure.
 

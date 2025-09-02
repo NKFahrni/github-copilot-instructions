@@ -44,7 +44,10 @@
 # Exceptions & Errors
 - Use exceptions for exceptional paths only; avoid silent catches.
 - Prefer precise exception types; include contextual data in messages.
-- Validate inputs at boundaries; return `OneOf`/result types or `Try*` patterns where appropriate.
+- Validate inputs at boundaries; consider result patterns:
+  - `Result<T>` or `OneOf<Success, Error>` for operations that may fail
+  - `Try*` methods for parsing/conversion operations
+  - Return appropriate HTTP status codes in APIs
 
 # Logging & Telemetry
 - Inject **`ILogger<T>`**; avoid static loggers.
@@ -53,6 +56,11 @@
 # Configuration & Options
 - Bind settings via `IOptions<T>` / `IOptionsMonitor<T>` with validated **options classes**.
 - Keep config keys and types strongly typed; avoid magical string keys.
+
+# Dependency Injection
+- Register dependencies with appropriate lifetimes (Singleton, Scoped, Transient).
+- Prefer constructor injection; avoid service locator pattern.
+- Use `IOptions<T>` for configuration; validate at startup.
 
 # API/Layering
 - Keep **domain logic** independent of frameworks; inject abstractions at boundaries.
