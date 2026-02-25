@@ -160,3 +160,18 @@ When using these instruction sets, Copilot should generate code that is:
 - **Modern C# language features** utilized appropriately  
 - **Async/await patterns** with proper cancellation
 - **Dependency injection** and configuration patterns  
+ - **Dependency injection** and configuration patterns  
+
+---
+
+## 🧾 Pre-built LLM Prompts
+
+This repository includes several focused prompt templates and stack-specific instruction sets located in the `pre-built-LLM-prompts/` folder. Use these files as ready-to-use system prompts or developer guidance for each target environment.
+
+- [pre-built-LLM-prompts/README_Angular19_UI.md](pre-built-LLM-prompts/README_Angular19_UI.md): Frontend guidelines for Angular 19+ projects (strict TypeScript, signals, OnPush, standalone components).
+- [pre-built-LLM-prompts/README_AWS_Lambda_Node_TS.md](pre-built-LLM-prompts/README_AWS_Lambda_Node_TS.md): Serverless backend patterns for AWS Lambda using Node.js + TypeScript (handlers, strict typing, local run instructions).
+- [pre-built-LLM-prompts/README_AzureFunctions_NET8_Isolated.md](pre-built-LLM-prompts/README_AzureFunctions_NET8_Isolated.md): Azure Functions (.NET 8 isolated) guidance (DI, observability, thin functions, local development).
+- [pre-built-LLM-prompts/README_General_LLM_Control_Prompt.md](pre-built-LLM-prompts/README_General_LLM_Control_Prompt.md): High-integrity LLM control prompt to reduce hallucinations and enforce clarification and transparency.
+- [pre-built-LLM-prompts/README_LLM_Control_Prompt_Token_Optimized.md](pre-built-LLM-prompts/README_LLM_Control_Prompt_Token_Optimized.md): Compact, token-optimized control prompt variant for concise high-quality responses.
+
+Refer to each file for full details and example usage patterns.
